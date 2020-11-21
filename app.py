@@ -26,3 +26,23 @@ if __name__ == "__main__":
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    return redirect(render_template("login.html"))
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
+@app.route("/create")
+def create():
+    return render_template("create.html")
+
+
+@app.route("/characters")
+def characters():
+    return render_template("characters.html")

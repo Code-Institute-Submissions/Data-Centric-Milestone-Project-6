@@ -6,12 +6,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
     <title>Character Profiler</title>
 </head>
 <body>
     <header>
-        <h4>Hello World!!</h4>
+          <nav class="nav-extended deep-purple">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo center-align">Character Profiler</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+              <ul class="right hide-on-med-and-down text-shadow">
+                <li><a href="{{ url_for('create') }}"><strong>Create</strong></a></li>
+                <li><a href="{{ url_for('characters') }}"><strong>Characters</strong></a></li>
+                <li><a href="{{ url_for('login') }}"><strong>Login</strong></a></li>
+                <li><a href="{{ url_for('logout') }}"><strong>Logout</strong></a></li>
+                <li><a href="{{ url_for('register') }}"><strong>Register</strong></a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav right hide-on-med-and-down text-shadow" id="mobile-demo">
+            <li><a href="{{ url_for('create') }}">Create</a></li>
+            <li><a href="{{ url_for('characters') }}">Characters</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+          </ul>
     </header>
 
     <main>
