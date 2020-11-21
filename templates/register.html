@@ -1,36 +1,40 @@
+<!-- Jinja tells the document to add this documents code in to base.html -->
 {% extends "base.html" %}
-    {% block content %}
 
-        <main class="container s12 m4 l8">
-            <div class="row">
-                <div class="s12 m4 l8">
-                  <div class="card grey lighten-4">
-                        <form >
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <i class="fa fa-user-circle"></i>
-                              <input id="username" type="text" class="validate" required
-                                minlength="5" maxlength="20">
-                              <label for="username">Username</label>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="input-field col s12">
-                              <i class="fa fa-key"></i>
-                              <input id="password" type="text" class="validate" required 
-                                minlength="5" maxlength="20">
-                              <label for="password">Password</label>
-                            </div>
-                            <div class="row center">
-                              <button class="btn waves-effect waves-light green darken-1" type="submit" name="register">Register<i class="material-icons right"></i>
-                            </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+<!-- The content we are inserting into the base.html template. -->
+{% block content %}
+
+<!-- Register Heading. We know what page we are on. -->
+<h3 class="center-align">Register</h3>
+
+<!-- Sets up our main container for the rest of the page content. -->
+<main class="container s12 m4 l8 center">
+    <div class="card grey lighten-5 center">
+        <div class="row">
+            <form class="col s12 center">
+                <div class="row">
+                  <div class="input-field col s12 center">
+                    <i class="fa fa-user-circle prefix"></i>
+                    <input id="username" name="username" type="text"
+                        required pattern="^[a-zA-Z0-9]{5,15}$" class="validate">
+                    <label for="username">Username</label>
                   </div>
                 </div>
-              </div>
-        </main>
+                <div class="row">
+                  <div class="input-field col s12 center">
+                    <i class="fa fa-lock prefix"></i>
+                    <input id="password" name="password" type="password"
+                        required pattern="^[a-zA-Z0-9]{5,15}$" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect green darken-1 center" type="submit" name="action">Register
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
 
-    {% endblock %}
+{% endblock %}
