@@ -1,3 +1,7 @@
 .text-shadow {
     text-shadow: 2px 2px black;
 }
+
+.white-text {
+    color: white;
+}
