@@ -7,13 +7,13 @@
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
-    <title>Character Profiler</title>
+    <title>OCX HEAVEN</title>
 </head>
 <body>
     <header>
           <nav class="nav-extended deep-purple">
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo center-align text-shadow">OCX HEAVEN</a>
+              <a href="#" class="brand-logo center-align text-shadow logo-margin logo-remove-margin">OCX HEAVEN</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down text-shadow">
                 <li><a href="{{ url_for('create') }}"><strong>Create</strong></a></li>
@@ -26,7 +26,7 @@
           </nav>
         
           <ul class="sidenav text-shadow deep-purple" id="mobile-demo">
-            <li><a class="brand-logo center-align text-shadow white-text" href="#"><h5>OCX HEAVEN</h5></a></li>
+            <li><a class="brand-logo center-align text-shadow white-text logo-remove-margin" href="#"><h5>OCX HEAVEN</h5></a></li>
             <li><a class="white-text" href="{{ url_for('create') }}">Create</a></li>
             <li><a class="white-text" href="{{ url_for('characters') }}">Characters</a></li>
             <li><a class="white-text" href="{{ url_for('login') }}">Login</a></li>

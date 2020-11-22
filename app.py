@@ -19,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
@@ -54,4 +55,6 @@ def create():
 # Displays a list of created character profiles from the database.
 @app.route("/characters")
 def characters():
-    return render_template("characters.html")
+    characters = mongo.db.characters.find()
+    return render_template("characters.html", characters=characters)
+
