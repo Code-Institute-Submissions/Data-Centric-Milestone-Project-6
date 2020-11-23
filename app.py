@@ -50,7 +50,16 @@ def register():
 # Routes to the create a character profile template.
 @app.route("/create")
 def create():
-    return render_template("create.html")
+    positive = mongo.db.positive.find()
+    negative = mongo.db.negative.find()
+    talents = mongo.db.talents.find()
+    genders = mongo.db.genders.find()
+    rank = mongo.db.rank.find()
+    builds = mongo.db.builds.find()
+    return render_template(
+        "create.html", positive=positive,
+         negative=negative, talents=talents, genders=genders,
+         rank=rank, builds=builds)
 
 # Displays a list of created character profiles from the database.
 @app.route("/characters")

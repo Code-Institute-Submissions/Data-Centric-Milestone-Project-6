@@ -22,11 +22,15 @@
                           </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s6 center">
-                                <input id="rank" name="rank" type="text"
-                                    class="validate">
+                            <div class="input-field col s6">
+                                <select>
+                                  <option value="" disabled selected>Choose Rank</option>
+                                  {% for level in rank %}
+                                  <option>{{ level.rank_name }}</option>
+                                  {% endfor %}
+                                </select>
                                 <label for="rank">Rank</label>
-                            </div>
+                              </div>
                             <div class="input-field col s6 center center-align">
                                 <i class=""></i>
                                 <input id="image" name="image" type="text"
@@ -41,12 +45,15 @@
                                   required pattern="^[a-zA-Z]{2,50}$" class="validate">
                               <label for="species">Species</label>
                             </div>
-                            <div class="input-field col s4 center">
-                              <i class=""></i>
-                              <input id="gender" name="gender" type="text"
-                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
-                              <label for="gender">Gender</label>
-                            </div>
+                            <div class="input-field col s4">
+                                <select>
+                                  <option value="" disabled selected>Choose Gender</option>
+                                  {% for gender in genders %}
+                                  <option>{{ gender.gender_name }}</option>
+                                  {% endfor %}
+                                </select>
+                                <label for="gender">Gender</label>
+                              </div>
                             <div class="input-field col s4 center">
                               <i class=""></i>
                               <input id="age" name="age" type="text"
@@ -62,22 +69,46 @@
                               <label for="hair">Hair</label>
                             </div>
                             <div class="input-field col s4 center">
-                              <i class=""></i>
-                              <input id="physique" name="physique" type="text"
-                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
-                              <label for="physique">Physique</label>
+                                <select>
+                                  <option value="" disabled selected>Choose Physique</option>
+                                  {% for build in builds %}
+                                  <option>{{ build.build_name }}</option>
+                                  {% endfor%}
+                                </select>
+                                <label for="physique">Physique</label>
+                              </div>
+                              <div class="input-field col s4">
+                                <select multiple>
+                                  <option value="" disabled selected>Choose Talent(s)</option>
+                                  {% for talent in talents %}
+                                  <option>{{ talent.talent_name }}</option>
+                                  {% endfor %}
+                                </select>
+                                <label for="talents">Talent(s)</label>
+                              </div>
                             </div>
-                            <div class="input-field col s4 center">
-                                <i class=""></i>
-                                <input id="talents" name="talents" type="text"
-                                    required pattern="^[a-zA-Z]{2,50}$" class="validate">
-                                <label for="talents">Talents</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select multiple>
+                                      <option value="" disabled selected>Choose Trait(s)</option>
+                                      <optgroup label="Positive Traits">
+                                        {% for trait in positive %}
+                                        <option>{{ trait.trait_name }}</option>
+                                        {% endfor %}
+                                      </optgroup>
+                                      <optgroup label="Negative Traits">
+                                        {% for trait in negative %}
+                                        <option>{{ trait.trait_name }}</option>
+                                        {% endfor %}
+                                      </optgroup>
+                                    </select>
+                                    <label for="traits">Traits</label>
+                                  </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <button class="btn waves-effect green darken-1 center" type="submit" name="submit">Create
-                            </button>
-                        </div>
+                            <div class="row">
+                                <button class="btn waves-effect green darken-1 center" type="submit" name="submit">Create
+                                </button>
+                            </div>
                     </form>
                 </div>
             </div>
