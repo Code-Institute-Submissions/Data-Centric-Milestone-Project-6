@@ -1,9 +1,86 @@
 {% extends "base.html" %}
     {% block content %}
-        <h4 class="center">Character creation</h4>
+        <h3 class="center"><i class="fa fa-cog" aria-hidden="true"></i> Character Creation <i class="fa fa-cog" aria-hidden="true"></i></h3>
 
         <main class="container">
             <hr><br>
+            <div class="card grey lighten-5 center">
+                <div class="row">
+                    <form class="col s12 center"  method="POST" action="{{ url_for('create') }}">
+                        <div class="row">
+                          <div class="input-field col s6 center">
+                            <i class=""></i>
+                            <input id="name" name="name" type="text"
+                                required pattern="^[a-zA-Z0-9]{2,50}$" class="validate">
+                            <label for="name">Name</label>
+                          </div>
+                          <div class="input-field col s6 center">
+                            <i class=""></i>
+                            <input id="title" name="title" type="text"
+                                class="validate">
+                            <label for="title">Title</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6 center">
+                                <input id="rank" name="rank" type="text"
+                                    class="validate">
+                                <label for="rank">Rank</label>
+                            </div>
+                            <div class="input-field col s6 center center-align">
+                                <i class=""></i>
+                                <input id="image" name="image" type="text"
+                                    class="validate">
+                                <label for="image">Image URL</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4 center">
+                              <i class=""></i>
+                              <input id="species" name="species" type="text"
+                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
+                              <label for="species">Species</label>
+                            </div>
+                            <div class="input-field col s4 center">
+                              <i class=""></i>
+                              <input id="gender" name="gender" type="text"
+                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
+                              <label for="gender">Gender</label>
+                            </div>
+                            <div class="input-field col s4 center">
+                              <i class=""></i>
+                              <input id="age" name="age" type="text"
+                                  required pattern="^[0-9]$" class="validate">
+                              <label for="age">Age</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4 center">
+                              <i class=""></i>
+                              <input id="hair" name="hair" type="text"
+                                  required pattern="^[a-zA-Z]$" class="validate">
+                              <label for="hair">Hair</label>
+                            </div>
+                            <div class="input-field col s4 center">
+                              <i class=""></i>
+                              <input id="physique" name="physique" type="text"
+                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
+                              <label for="physique">Physique</label>
+                            </div>
+                            <div class="input-field col s4 center">
+                                <i class=""></i>
+                                <input id="talents" name="talents" type="text"
+                                    required pattern="^[a-zA-Z]{2,50}$" class="validate">
+                                <label for="talents">Talents</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn waves-effect green darken-1 center" type="submit" name="submit">Create
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </main>
     {% endblock %}

@@ -11,8 +11,10 @@
 }
 
 .image-formatting img {
-    height: 30rem;
+    max-height: 25rem;
+    height: auto;
     width: auto;
+    max-width: 25rem;
 }
 
 hr {
