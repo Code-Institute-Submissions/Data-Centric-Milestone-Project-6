@@ -34,6 +34,25 @@
             <li><a class="white-text" href="{{ url_for('register') }}">Register</a></li>
           </ul>
     </header>
+    <section>
+      {% if session["user"] %}
+      <div class="row">
+        <p class="right-align logged-in-user"><strong>Logged in as, {{ session["user"] }}!</strong></p>
+      </div>
+    </section>
+      {% endif %}
+    <section>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="row flashes">
+                      <h5 class="light-blue lighten-4 center-align">{{ message }}</h5>
+                  </div>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </section>
 
     <main>
         {% block content %}
