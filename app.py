@@ -124,7 +124,7 @@ def create():
     return render_template(
         "create.html", positive=positive,
          negative=negative, talents=talents, genders=genders,
-         rank=rank, builds=builds)
+         rank=rank, builds=builds, backstory=backstory)
 
 
 # Displays a list of created character profiles from the database.
