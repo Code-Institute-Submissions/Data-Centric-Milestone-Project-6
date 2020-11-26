@@ -5,27 +5,36 @@
         <main class="container s12 m4 l8 center">
             <hr><br>
             {% for character in characters %}
-                <div class="card grey lighten-5 center">
+                <div class="card blue-grey lighten-5 center">
                     <div class="row left-align">
                         {% if character.title %}
-                        <h4 class="center-align">{{ character.name }}, {{ character.title }}</h5>
+                        <h4 class="center-align white-text-shadow">{{ character.name }}, {{ character.title }}</h5>
                         {% else %}
-                        <h4 class="center-align">{{ character.name }}</h5>
+                        <h4 class="center-align white-text-shadow">{{ character.name }}</h5>
                         {% endif %}
                         <div class="right image-formatting">
                             <img src="{{ character.image }}" alt="">
                         </div>
                         <p><i class="fas fa-crown"></i> Rank: {{ character.rank }}</p>
+                        {% if character.species %}
                         <p>Species: {{ character.species }}</p>
+                        {% else %}
+                        <p>Species: Unknown</p>
+                        {% endif %}
                         {% if character.gender == "Male" %}
                         <p>Gender: <i class="fa fa-male"></i></p>
                         {% else %}
                         <p>Gender: <i class="fa fa-female"></i></p>
                         {% endif %}
+                        {% if character.age %}
                         <p>Age: {{ character.age }}</p>
+                        {% else %}
+                        <p>Age: Unknown</p>
+                        {% endif %}
                         <p>Hair: {{ character.hair }}</p>
                         <p>Physique: {{ character.build }}</p>
                         <p>Talents: {{ character.talents }}</p>
+                        <p>Backstory: {{ character.backstory }}</p>
                     </div>
                 </div>
             {% endfor %}

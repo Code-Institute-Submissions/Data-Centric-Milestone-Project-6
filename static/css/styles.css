@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+
 .text-shadow {
     text-shadow: 2px 2px black;
+}
+
+.white-text-shadow {
+    text-shadow: 2px 2px white;
 }
 
 .white-text {
@@ -26,6 +32,20 @@ hr {
 .logged-in-user {
     margin-top: 3px;
     margin-right: 3px;
+}
+
+p {
+    font-family: "Teko";
+    font-size: 18px;
+}
+
+h3, h4, h5 {
+    font-family: "Teko";
+}
+
+input, label, select, option {
+    font-family: "Teko";
+    font-size: 20px;
 }
 
 /*------------------------------ Media Queries --------------------------------*/
