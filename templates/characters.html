@@ -34,7 +34,11 @@
                         <p>Hair: {{ character.hair }}</p>
                         <p>Physique: {{ character.build }}</p>
                         <p>Talents: {{ character.talents }}</p>
+                        {% if character.backstory %}
                         <p>Backstory: {{ character.backstory }}</p>
+                        {% else %}
+                        <p>Backstory: Unknown</p>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

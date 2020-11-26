@@ -1,3 +1,4 @@
+# Sets up our imported libraries and resources to be used in the app.
 import os
 from flask import (
     Flask, flash, render_template,
@@ -9,6 +10,7 @@ if os.path.exists("env.py"):
     import env
 
 
+# Assigns a flask app, to the variable app.
 app = Flask(__name__)
 
 # This sets up our Environment variables in order to run our web app
@@ -17,9 +19,12 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+# Tells the app to assign Pymongo to the variable: mongo, of which the global
+# app variable is already assigned within parenthesis, to Pymongo.
 mongo = PyMongo(app)
 
 
+# This is a Guard code.
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
@@ -33,21 +38,27 @@ if __name__ == "__main__":
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if user exists in the database
+        # check if user exists in the database.
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
+        # Checks if the chosen username already exists ("Truthy") in the database, and if
+        # so, flashes an error message.
         if existing_user:
-            flash("Username already exists")
+            flash("Username unavailable!")
             return redirect(url_for("register"))
 
+        # Providing the active-user's inputs pass the above check,
+        # Insert their chosen credentials into the database with MongoDB,
+        # To then be stored and recalled at a later date, when the user wishes
+        # To Log back in.
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
-        # put the new user into 'session' cookie
+        # Puts the new user into a "session" cookie as cached data.
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("characters", username=session["user"]))
@@ -75,19 +86,22 @@ def login():
                         return redirect(url_for(
                             "characters", username=session["user"]))
             else:
-                # In event of an incorrect password input.
+                # In event of an incorrect password input, flash a message and
+                # redirect the user to the login.html template page.
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # If the Username input by user doesn't exist, flash message and redirect.
+            # If the Username input by user doesn't exist, flash message
+            # and redirect to the login.html template.
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
 
 
-# This allows the user to no longer be the active-user, and removes session cookies.
+# This allows the user to no longer be the active-user, and removes
+# session cookies.
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -98,20 +112,26 @@ def logout():
 # Routes to the create a character profile template.
 @app.route("/create")
 def create():
+    # Datasets assigned from MongoDB to local variables, in order to then be
+    # used on the create.html template.
     positive = mongo.db.positive.find()
     negative = mongo.db.negative.find()
     talents = mongo.db.talents.find()
     genders = mongo.db.genders.find()
     rank = mongo.db.rank.find()
     builds = mongo.db.builds.find()
+    backstory = mongo.db.backstory.find()
     return render_template(
         "create.html", positive=positive,
          negative=negative, talents=talents, genders=genders,
          rank=rank, builds=builds)
 
+
 # Displays a list of created character profiles from the database.
 @app.route("/characters")
 def characters():
+    # Finds and assigns all datasets within the characters collection
+    # on MongoDB to a local variable, so they can be displayed, in the
+    # characters.html template.
     characters = mongo.db.characters.find()
     return render_template("characters.html", characters=characters)
-
