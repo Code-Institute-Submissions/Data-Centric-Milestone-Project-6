@@ -110,7 +110,7 @@ def logout():
 
 
 # Routes to the create a character profile template.
-@app.route("/create")
+@app.route("/create", methods=["GET", "POST"])
 def create():
     # Datasets assigned from MongoDB to local variables, in order to then be
     # used on the create.html template.
@@ -121,6 +121,26 @@ def create():
     rank = mongo.db.rank.find()
     builds = mongo.db.builds.find()
     backstory = mongo.db.backstory.find()
+
+    if request.method == "POST":
+        character = {
+            "name": request.form.get("name"),
+            "title": request.form.get("title"),
+            "rank": request.form.get("rank"),
+            "image": request.form.get("image"),
+            "species": request.form.get("species"),
+            "gender": request.form.get("gender"),
+            "age": request.form.get("age"),
+            "hair": request.form.get("hair"),
+            "build": request.form.get("build"),
+            "talents": request.form.get("talents"),
+            "traits": request.form.get("traits"),
+            "backstory": request.form.get("backstory")
+        }
+        mongo.db.characters.insert_one(character)
+        flash("Character Created!")
+        return redirect(url_for("characters"))
+        
     return render_template(
         "create.html", positive=positive,
          negative=negative, talents=talents, genders=genders,

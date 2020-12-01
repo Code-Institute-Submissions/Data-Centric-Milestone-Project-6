@@ -23,8 +23,10 @@
                         {% endif %}
                         {% if character.gender == "Male" %}
                         <p>Gender: <i class="fa fa-male"></i></p>
-                        {% else %}
+                        {% elif character.gender == "Female" %}
                         <p>Gender: <i class="fa fa-female"></i></p>
+                        {% else %}
+                        <p>Gender: <i class="fa fa-transgender"></i></p>
                         {% endif %}
                         {% if character.age %}
                         <p>Age: {{ character.age }}</p>
