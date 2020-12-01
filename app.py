@@ -122,6 +122,9 @@ def create():
     builds = mongo.db.builds.find()
     backstory = mongo.db.backstory.find()
 
+    # If a POST method id called (user clicks the create button), then
+    # app takes the data from inout fields in the create.html by the same
+    # key names as the dict below, stores this data in the variable 'character'
     if request.method == "POST":
         character = {
             "name": request.form.get("name"),
@@ -137,10 +140,19 @@ def create():
             "traits": request.form.get("traits"),
             "backstory": request.form.get("backstory")
         }
+        # Then this line inserts these key value pairs using the variable.
+        # 'character' which has the data stored, and inserts it in the
+        # appropriate collection on MongoDB.
         mongo.db.characters.insert_one(character)
+        # Then once the above is complete, a flash image appears telling the
+        # user that they have successfully created their character on site.
         flash("Character Created!")
+        # And then the page redirects to the main characters page, where the
+        # user can see their own creation newly inserted onto the page.
         return redirect(url_for("characters"))
-        
+
+    # This renders the create.html template using the variables called from
+    # MongoDB that we created above.
     return render_template(
         "create.html", positive=positive,
          negative=negative, talents=talents, genders=genders,
