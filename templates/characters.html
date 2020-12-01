@@ -41,7 +41,16 @@
                         {% else %}
                         <p>Backstory: Unknown</p>
                         {% endif %}
+                        {% if character.authored_by %}
+                        <p>Authored by: {{ character.authored_by }}</p>
+                        {% endif %}
                     </div>
+                    {% if character.authored_by == session["user"] %}
+                    <div class="row">
+                        <button class="btn waves-effect green darken-1 center" type="submit" name="edit">Edit
+                        </button>
+                    </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </main>

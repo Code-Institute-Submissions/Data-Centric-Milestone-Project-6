@@ -167,3 +167,7 @@ def characters():
     # characters.html template.
     characters = mongo.db.characters.find()
     return render_template("characters.html", characters=characters)
+
+@app.route("/edit_character")
+def edit_character():
+    return render_template("edit_character.htmml")
