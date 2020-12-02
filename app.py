@@ -138,7 +138,8 @@ def create():
             "build": request.form.get("build"),
             "talents": request.form.get("talents"),
             "traits": request.form.get("traits"),
-            "backstory": request.form.get("backstory")
+            "backstory": request.form.get("backstory"),
+            "authored_by": session["user"]
         }
         # Then this line inserts these key value pairs using the variable.
         # 'character' which has the data stored, and inserts it in the
@@ -168,6 +169,38 @@ def characters():
     characters = mongo.db.characters.find()
     return render_template("characters.html", characters=characters)
 
-@app.route("/edit_character")
-def edit_character():
-    return render_template("edit_character.htmml")
+@app.route("/edit_character<character_id>", methods=["GET", "POST"])
+def edit_character(character_id):
+
+    positive = mongo.db.positive.find()
+    negative = mongo.db.negative.find()
+    talents = mongo.db.talents.find()
+    genders = mongo.db.genders.find()
+    rank = mongo.db.rank.find()
+    builds = mongo.db.builds.find()
+    backstory = mongo.db.backstory.find()
+
+    if request.method == "POST":
+        submit = {
+            "name": request.form.get("name"),
+            "title": request.form.get("title"),
+            "rank": request.form.get("rank"),
+            "image": request.form.get("image"),
+            "species": request.form.get("species"),
+            "gender": request.form.get("gender"),
+            "age": request.form.get("age"),
+            "hair": request.form.get("hair"),
+            "build": request.form.get("build"),
+            "talents": request.form.get("talents"),
+            "traits": request.form.get("traits"),
+            "backstory": request.form.get("backstory"),
+            "authored_by": session["user"]
+        }
+        mongo.db.characters.update({"_id": ObjectId(character_id)}, submit)
+        flash("Character Updated!")
+        return redirect(url_for("characters"))
+
+    character = mongo.db.characters.find_one({"_id": ObjectId(character_id)})
+    return render_template("edit_character.html", character=character,
+         positive=positive, negative=negative, talents=talents, genders=genders,
+         rank=rank, builds=builds, backstory=backstory)

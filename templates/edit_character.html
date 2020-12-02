@@ -10,13 +10,13 @@
                         <div class="row">
                           <div class="input-field col s6 center">
                             <i class=""></i>
-                            <input id="name" name="name" type="text"
+                            <input id="name" name="name" type="text" value="{{ character.name }}"
                                 required pattern="^[a-zA-Z0-9]{2,50}$" class="validate">
                             <label for="name">Name</label>
                           </div>
                           <div class="input-field col s6 center">
                             <i class=""></i>
-                            <input id="title" name="title" type="text"
+                            <input id="title" name="title" type="text" value="{{ character.title }}"
                                 class="validate">
                             <label for="title">Title</label>
                           </div>
@@ -90,15 +90,19 @@
                             <div class="row">
                                 <div class="input-field col s6">
                                     <select multiple name="traits">
-                                      <option value="" disabled selected>Choose Trait(s)</option>
+                                      <option disabled selected>Choose Trait(s)</option>
                                       <optgroup label="Positive Traits">
                                         {% for trait in positive %}
-                                        <option>{{ trait.trait_name }}</option>
+                                        {% if trait.trait_name == character.traits %}
+                                        <option value="{{ character.traits }}" selected>{{ trait.trait_name }}</option>
+                                        {% else %}
+                                        <option value="{{ character.traits }}">{{ trait.trait_name }}</option>
+                                        {% endif %}
                                         {% endfor %}
                                       </optgroup>
                                       <optgroup label="Negative Traits">
                                         {% for trait in negative %}
-                                        <option>{{ trait.trait_name }}</option>
+                                        <option value="{{ character.traits }}">{{ trait.trait_name }}</option>
                                         {% endfor %}
                                       </optgroup>
                                     </select>
