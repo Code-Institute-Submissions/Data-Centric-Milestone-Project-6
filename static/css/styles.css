@@ -21,6 +21,8 @@
     height: auto;
     width: auto;
     max-width: 25rem;
+    margin-right: 10px;
+    border: 5px solid white;
 }
 
 hr {
@@ -46,6 +48,15 @@ h3, h4, h5 {
 input, label, select, option {
     font-family: "Teko";
     font-size: 20px;
+}
+
+.char-names {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.char-details {
+    padding-left: 10px;
 }
 
 /*------------------------------ Media Queries --------------------------------*/

@@ -210,5 +210,9 @@ def edit_character(character_id):
 def delete_character(character_id):
     mongo.db.characters.remove({"_id": ObjectId(character_id)})
     flash("Character Deleted")
-    characters = mongo.db.characters.find()
-    return render_template("characters.html", characters=characters)
+    return redirect(url_for("characters"))
+
+
+@app.route("/cancel_edit")
+def cancel_edit():
+    return redirect(url_for("characters"))

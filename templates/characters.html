@@ -8,57 +8,59 @@
                 <div class="card blue-grey lighten-5 center">
                     <div class="row left-align">
                         {% if character.title %}
-                        <h4 class="center-align white-text-shadow">{{ character.name }}, {{ character.title }}</h5>
+                        <h4 class="center-align white-text-shadow char-names">{{ character.name }}, {{ character.title }}</h5>
                         {% else %}
-                        <h4 class="center-align white-text-shadow">{{ character.name }}</h5>
+                        <h4 class="center-align white-text-shadow char-names">{{ character.name }}</h5>
                         {% endif %}
                         <div class="right image-formatting">
                             <img src="{{ character.image }}" alt="">
                         </div>
-                        <p><i class="fas fa-crown"></i> Rank: {{ character.rank }}</p>
-                        {% if character.species %}
-                        <p>Species: {{ character.species }}</p>
-                        {% else %}
-                        <p>Species: Unknown</p>
-                        {% endif %}
-                        {% if character.gender == "Male" %}
-                        <p>Gender: <i class="fa fa-male"></i></p>
-                        {% elif character.gender == "Female" %}
-                        <p>Gender: <i class="fa fa-female"></i></p>
-                        {% else %}
-                        <p>Gender: <i class="fa fa-transgender"></i></p>
-                        {% endif %}
-                        {% if character.age %}
-                        <p>Age: {{ character.age }}</p>
-                        {% else %}
-                        <p>Age: Unknown</p>
-                        {% endif %}
-                        <p>Hair: {{ character.hair }}</p>
-                        <p>Physique: {{ character.build }}</p>
-                        {% if character.talents%}
-                        <p>Talents: {{ character.talents }}</p>
-                        {% else %}
-                        <p>Talents: Unknown</p>
-                        {% endif %}
-                        {% if character.traits %}
-                        <p>Traits: {{ character.traits }}</p>
-                        {% else %}
-                        <p>Traits: Unknown</p>
-                        {% endif %}
-                        {% if character.backstory %}
-                        <p>Backstory: {{ character.backstory }}</p>
-                        {% else %}
-                        <p>Backstory: Unknown</p>
-                        {% endif %}
-                        {% if character.authored_by %}
-                        <p>Authored by: {{ character.authored_by }}</p>
-                        {% endif %}
+                        <div class="char-details">
+                            <p><i class="fas fa-crown"></i> Rank: {{ character.rank }}</p>
+                            {% if character.species %}
+                            <p>Species: {{ character.species }}</p>
+                            {% else %}
+                            <p>Species: Unknown</p>
+                            {% endif %}
+                            {% if character.gender == "Male" %}
+                            <p>Gender: <i class="fa fa-male"></i></p>
+                            {% elif character.gender == "Female" %}
+                            <p>Gender: <i class="fa fa-female"></i></p>
+                            {% else %}
+                            <p>Gender: <i class="fa fa-transgender"></i></p>
+                            {% endif %}
+                            {% if character.age %}
+                            <p>Age: {{ character.age }}</p>
+                            {% else %}
+                            <p>Age: Unknown</p>
+                            {% endif %}
+                            <p>Hair: {{ character.hair }}</p>
+                            <p>Physique: {{ character.build }}</p>
+                            {% if character.talents%}
+                            <p>Talents: {{ character.talents }}</p>
+                            {% else %}
+                            <p>Talents: Unknown</p>
+                            {% endif %}
+                            {% if character.traits %}
+                            <p>Traits: {{ character.traits }}</p>
+                            {% else %}
+                            <p>Traits: Unknown</p>
+                            {% endif %}
+                            {% if character.backstory %}
+                            <p>Backstory: {{ character.backstory }}</p>
+                            {% else %}
+                            <p>Backstory: Unknown</p>
+                            {% endif %}
+                            {% if character.authored_by %}
+                            <p>Authored by: {{ character.authored_by }}</p>
+                            {% endif %}
+                        </div>
                     </div>
                     {% if character.authored_by == session["user"] %}
-                    <div class="row">
+                    <div class="row center center-align">
                         <a href="{{ url_for('edit_character', character_id=character._id) }}" class="btn waves-effect green darken-1 center">Edit</a>
                         <a href="{{ url_for('delete_character', character_id=character._id) }}" class="btn waves-effect red darken-1 center">Delete</a>
-                    </div>
+                    </div><br>
                     {% endif %}
                 </div>
             {% endfor %}
