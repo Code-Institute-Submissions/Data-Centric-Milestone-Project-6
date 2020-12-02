@@ -1,4 +1,3 @@
-# Sets up our imported libraries and resources to be used in the app.
 import os
 from flask import (
     Flask, flash, render_template,
