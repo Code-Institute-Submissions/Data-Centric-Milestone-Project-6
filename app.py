@@ -204,3 +204,11 @@ def edit_character(character_id):
     return render_template("edit_character.html", character=character,
          positive=positive, negative=negative, talents=talents, genders=genders,
          rank=rank, builds=builds, backstory=backstory)
+
+
+@app.route("/delete_character/<character_id>")
+def delete_character(character_id):
+    mongo.db.characters.remove({"_id": ObjectId(character_id)})
+    flash("Character Deleted")
+    characters = mongo.db.characters.find()
+    return render_template("characters.html", characters=characters)
