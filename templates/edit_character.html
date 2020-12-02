@@ -24,7 +24,11 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <select name="rank">
+                                  {% if character.rank %}
+                                  <option selected>{{ character.rank }}</option>
+                                  {% else %}
                                   <option value="" disabled selected>Choose Rank</option>
+                                  {% endif %}
                                   {% for level in rank %}
                                   <option>{{ level.rank_name }}</option>
                                   {% endfor %}
@@ -33,7 +37,7 @@
                               </div>
                             <div class="input-field col s6 center center-align">
                                 <i class=""></i>
-                                <input id="image" name="image" type="text"
+                                <input id="image" name="image" type="text" value="{{ character.image }}"
                                     class="validate">
                                 <label for="image">Image URL</label>
                             </div>
@@ -41,13 +45,17 @@
                         <div class="row">
                             <div class="input-field col s4 center">
                               <i class=""></i>
-                              <input id="species" name="species" type="text"
-                                  required pattern="^[a-zA-Z]{2,50}$" class="validate">
+                              <input id="species" name="species" type="text" value="{{ character.species }}"
+                              class="validate">
                               <label for="species">Species</label>
                             </div>
                             <div class="input-field col s4">
                                 <select name="gender">
+                                  {% if character.gender %}
+                                  <option selected>{{ character.gender }}</option>
+                                  {% else %}
                                   <option value="" disabled selected>Choose Gender</option>
+                                  {% endif %}
                                   {% for gender in genders %}
                                   <option>{{ gender.gender_name }}</option>
                                   {% endfor %}
@@ -56,7 +64,7 @@
                               </div>
                             <div class="input-field col s4 center">
                               <i class=""></i>
-                              <input id="age" name="age" type="text"
+                              <input id="age" name="age" type="text" value="{{ character.age }}"
                                   class="validate">
                               <label for="age">Age</label>
                             </div>
@@ -64,13 +72,17 @@
                         <div class="row">
                             <div class="input-field col s4 center">
                               <i class=""></i>
-                              <input id="hair" name="hair" type="text"
+                              <input id="hair" name="hair" type="text" value="{{ character.hair }}"
                                   class="validate">
                               <label for="hair">Hair</label>
                             </div>
                             <div class="input-field col s4 center">
                                 <select name="build">
+                                  {% if character.build %}
+                                  <option selected>{{ character.build }}</option>
+                                  {% else %}
                                   <option value="" disabled selected>Choose Physique</option>
+                                  {% endif %}
                                   {% for build in builds %}
                                   <option>{{ build.build_name }}</option>
                                   {% endfor%}
@@ -83,6 +95,11 @@
                                   {% for talent in talents %}
                                   <option>{{ talent.talent_name }}</option>
                                   {% endfor %}
+                                  {% if character.talents %}
+                                  <option value="{{ character.talents }}" multiple selected>{{ character.talents }}</option>
+                                  {% else %}
+                                  <option value="" disabled selected>Choose Talent(s)</option>
+                                  {% endif %}
                                 </select>
                                 <label for="talents">Talent(s)</label>
                               </div>
@@ -94,7 +111,7 @@
                                       <optgroup label="Positive Traits">
                                         {% for trait in positive %}
                                         {% if trait.trait_name == character.traits %}
-                                        <option value="{{ character.traits }}" selected>{{ trait.trait_name }}</option>
+                                        <option value="{{ character.traits }}" multiple selected>{{ trait.trait_name }}</option>
                                         {% else %}
                                         <option value="{{ character.traits }}">{{ trait.trait_name }}</option>
                                         {% endif %}
@@ -112,7 +129,8 @@
                             <div class="row">
                               <div class="input-field col s12 center-align">
                                 <i class=""></i>
-                                <input id="backstory" name="backstory" type="text">
+                                <input id="backstory" name="backstory" type="text"
+                                value="{{ character.backstory }}">
                                 <label for="backstory">Backstory</label>
                               </div>
                             </div>

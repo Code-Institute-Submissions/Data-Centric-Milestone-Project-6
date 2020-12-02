@@ -16,10 +16,14 @@
               <a href="#" class="brand-logo center-align text-shadow logo-margin logo-remove-margin">OCX HEAVEN</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down text-shadow">
+                {% if session["user"] %}
                 <li><a href="{{ url_for('create') }}"><strong>Create</strong></a></li>
+                {% endif %}
                 <li><a href="{{ url_for('characters') }}"><strong>Characters</strong></a></li>
                 <li><a href="{{ url_for('login') }}"><strong>Login</strong></a></li>
+                {% if session["user"] %}
                 <li><a href="{{ url_for('logout') }}"><strong>Logout</strong></a></li>
+                {% endif %}
                 <li><a href="{{ url_for('register') }}"><strong>Register</strong></a></li>
               </ul>
             </div>
