@@ -112,9 +112,9 @@ def logout():
 def create():
     # Datasets assigned from MongoDB to local variables, in order to then be
     # used on the create.html template.
-    positive = (mongo.db.positive.find())
-    negative = (mongo.db.negative.find())
-    talents = (mongo.db.talents.find())
+    positive = mongo.db.positive.find()
+    negative = mongo.db.negative.find()
+    talents = mongo.db.talents.find()
     genders = mongo.db.genders.find()
     rank = mongo.db.rank.find()
     builds = mongo.db.builds.find()
@@ -170,9 +170,9 @@ def characters():
 @app.route("/edit_character<character_id>", methods=["GET", "POST"])
 def edit_character(character_id):
 
-    positive = (mongo.db.positive.find())
-    negative = (mongo.db.negative.find())
-    talents = (mongo.db.talents.find())
+    positive = mongo.db.positive.find()
+    negative = mongo.db.negative.find()
+    talents = mongo.db.talents.find()
     genders = mongo.db.genders.find()
     rank = mongo.db.rank.find()
     builds = mongo.db.builds.find()
@@ -189,8 +189,8 @@ def edit_character(character_id):
             "age": request.form.get("age"),
             "hair": request.form.get("hair"),
             "build": request.form.get("build"),
-            "talents": request.form.get("talents"),
-            "traits": request.form.get("traits"),
+            "talents": request.form.getlist("talents"),
+            "traits": request.form.getlist("traits"),
             "backstory": request.form.get("backstory"),
             "authored_by": session["user"]
         }
