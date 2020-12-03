@@ -32,6 +32,7 @@ if __name__ == "__main__":
 # This sets up our basic routing through our apps folder structure.
 # Routes to our Register template, and allows the user to create a new username
 # and password.
+@app.route("/")
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
