@@ -33,7 +33,7 @@ and find new inspiration for their own projects.
 - [CSS](https://www.codecademy.com/learn/learn-css)
     - The language used to create custom styling to elements within the DOM bases on class and ID names and indivual element assignments.
 - [Jinja](https://jinja.palletsprojects.com/)
-    - The templating language used to add custom elements to the individual page templates in the DOM, including allow one template to inject code into another template. such as how all Navbar elements are contained within "base.html" and all other templates such as "create.html" will use {% block content %} templating to extend the base code.
+    - The templating language used to add custom elements to the individual page templates in the DOM, including allow one template to inject code into another template. such as how all Navbar elements are contained within "base.html" and all other templates such as "create.html" will use Jinja templating to extend the base code.
 - [JQuery](https://jquery.com)
     - The scripts.js file uses JQuery to initialize certain elements used from the Materialize Framework, such as the mobile navbar, or the multiple select options.
 - [Fontawesome](https://fontawesome.com/)
