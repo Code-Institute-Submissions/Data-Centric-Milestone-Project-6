@@ -33,6 +33,10 @@ if __name__ == "__main__":
 # Routes to our Register template, and allows the user to create a new username
 # and password.
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
