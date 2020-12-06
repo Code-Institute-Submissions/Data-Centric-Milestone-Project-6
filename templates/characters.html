@@ -12,8 +12,8 @@
                         {% else %}
                         <h4 class="center-align white-text-shadow char-names">{{ character.name }}</h5>
                         {% endif %}
-                        <div class="right image-formatting">
-                            <img src="{{ character.image }}" alt="">
+                        <div class="image-formatting">
+                            <img class="responsive-img" src="{{ character.image }}" alt="Character image not found">
                         </div>
                         <div class="char-details">
                             <p><i class="fas fa-crown"></i> Rank: {{ character.rank }}</p>

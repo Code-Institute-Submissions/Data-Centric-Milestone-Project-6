@@ -17,12 +17,14 @@
 }
 
 .image-formatting img {
-    max-height: 25rem;
     height: auto;
-    width: auto;
-    max-width: 25rem;
+    max-height: 50%;
+    width: 50%;
+    max-width: 50%;
     margin-right: 10px;
+    margin-bottom: 10px;
     border: 5px solid white;
+    float: right;
 }
 
 hr {
@@ -39,6 +41,8 @@ hr {
 p {
     font-family: "Teko";
     font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h3, h4, h5 {
@@ -110,5 +114,20 @@ input, label, select, option {
     .ocx-heaven-title {
         font-size: 30px;
         text-shadow: white 2px 2px;
+    }
+
+    .image-formatting img {
+        height: auto;
+        max-height: 100%;
+        width: 95%;
+        max-width: 95%;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        border: 5px solid white;
+        left: 10px;
+        translate: -50%;
+        clear: both;
+        text-align: center;
     }
 }
