@@ -1,6 +1,60 @@
 {% extends "base.html" %}
     {% block content %}
+    <div class="row">
+        <div class="span-width">
+            <div class="span-width make-relative">
+                <img id="darken-image" class="responsive-img responsive-image-extra-format span-width" src="https://i.pinimg.com/originals/a7/9a/f1/a79af1caeaa96dcc44c3b9f264575e7d.jpg">
+                <a href="{{ url_for('home') }}" class="ocx-heaven-title make-absolute"><strong>OCX HEAVEN</strong></a>
+            </div>
+        </div>
+    </div>
 
-    <h1 class="center-align">Home Page test</h1>
+    <h3 class="center">About</h3>
+
+    <main class="container s12 m4 l8 center">
+        <hr><br>
+        <div class="card blue-grey lighten-5 center">
+            <div class="row col s12">
+                <br>
+                <p>
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum. 
+                </p>
+            </div>
+            <div class="row col s12">
+                <div class="floating-left s6">
+                    <h4>Create Characters</h4>
+                    <hr>
+                    <p>
+                         Click below to go to the Character creation screen. Input
+                         everything from Name, Rank in society, to personallity traits
+                         and special talents. Then Submit them to the database to view later.
+                    </p>
+                    <div class="row s6">
+                        <a href="{{ url_for('create') }}"
+                        class="btn waves-effect red deep-purple center">Create</a>
+                    </div>
+                </div>
+                <div class="floating-right s6">
+                    <h4>See Them Here</h4>
+                    <hr>
+                    <p>
+                        View the characters you and others have created and
+                        submitted to our database. Or you can draw inspiration
+                        and let others do the same with famous original ideas.
+                    </p>
+                    <div class="row s6">
+                        <a href="{{ url_for('characters') }}"
+                        class="btn waves-effect deep-purple center">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </main>
+    
 
     {% endblock %}

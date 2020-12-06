@@ -59,9 +59,56 @@ input, label, select, option {
     padding-left: 10px;
 }
 
+.ocx-heaven-title {
+    color: black;
+    font-size: 100px;
+    text-shadow: white 8px 8px;
+    top: 40%;
+    left: 45%;
+    transform: translate(-40%, -45%);
+}
+
+.make-relative {
+    position: relative;
+}
+
+.make-absolute {
+    position: absolute;
+}
+
+.span-width {
+    width: 100%;
+    margin: 0;
+}
+
+.responsive-image-extra-format {
+    margin-left: 0;
+    padding: 0;
+    margin-right: 0;
+}
+
+#darken-image {
+    filter: brightness(50%);
+}
+
+.floating-left {
+    float: left;
+    max-width: 45%;
+}
+
+.floating-right {
+    float: right;
+    max-width: 45%;
+}
+
 /*------------------------------ Media Queries --------------------------------*/
 @media screen and (max-width: 850px) {
     .logo-remove-margin {
         margin-left: 0;
+    }
+
+    .ocx-heaven-title {
+        font-size: 30px;
+        text-shadow: white 2px 2px;
     }
 }
