@@ -23,12 +23,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# This is a Guard code.
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
-
 # This sets up our basic routing through our apps folder structure.
 # Routes to our Register template, and allows the user to create a new username
 # and password.
@@ -218,3 +212,10 @@ def delete_character(character_id):
 @app.route("/cancel_edit")
 def cancel_edit():
     return redirect(url_for("characters"))
+
+
+# This is a Guard code.
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=bool(os.environ.get("DEBUG", True)))
