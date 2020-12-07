@@ -130,4 +130,8 @@ input, label, select, option {
         clear: both;
         text-align: center;
     }
+
+    .make-it-center-align {
+        text-align: center;
+    }
 }
