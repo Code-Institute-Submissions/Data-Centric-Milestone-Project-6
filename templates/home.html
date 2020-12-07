@@ -23,6 +23,19 @@
                     reference or draw inspiration or give a little with fellow writers
                     and enthusiasts.
                 </p>
+                {% if session["user"] %}
+                <div class="row s6">
+                    <p>Already Registered?</p>
+                    <a href="{{ url_for('login') }}"
+                    class="btn waves-effect red deep-purple center">Login</a>
+                </div>
+                {% else %}
+                <p>Create an Account for Free</p>
+                <div class="row s6">
+                    <a href="{{ url_for('register') }}" 
+                    class="btn waves-effect red deep-purple center">Register</a>
+                </div>
+                {% endif %}
             </div>
             <div class="row col s12">
                 <div class="floating-left s6">
@@ -33,10 +46,17 @@
                          everything from Name, Rank in society, to personallity traits
                          and special talents. Then Submit them to the database to view later.
                     </p>
+                    {% if session["user"] %}
                     <div class="row s6">
                         <a href="{{ url_for('create') }}"
                         class="btn waves-effect red deep-purple center">Create</a>
                     </div>
+                    {% else %}
+                    <div class="row s6">
+                        <a href="{{ url_for('login') }}"
+                        class="btn waves-effect red deep-purple center">Login</a>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="floating-right s6">
                     <h4>See Them Here</h4>

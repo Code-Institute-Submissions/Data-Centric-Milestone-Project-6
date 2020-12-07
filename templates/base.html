@@ -16,6 +16,12 @@
               <a href="{{ url_for('home') }}" class="brand-logo center-align text-shadow logo-margin logo-remove-margin">OCX HEAVEN</a>
               <a href="{{ url_for('login') }}" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down text-shadow">
+                <li>
+                  <!-- Show the user which username is currently logged in -->
+                  {% if session["user"] %}
+                    <p class="logged-in-user no-text-shadow left-align">Logged in as, {{ session["user"] }}!</p>
+                  {% endif %}
+                </li>
                 {% if session["user"] %}
                 <li><a href="{{ url_for('create') }}"><strong>Create</strong></a></li>
                 {% endif %}
@@ -31,6 +37,12 @@
         
           <ul class="sidenav text-shadow deep-purple" id="mobile-demo">
             <li><a class="brand-logo center-align text-shadow white-text logo-remove-margin" href="{{ url_for('home') }}"><h5>OCX HEAVEN</h5></a></li>
+            <li>
+              <!-- Show the user which username is currently logged in -->
+              {% if session["user"] %}
+                <p class="logged-in-user black-text no-text-shadow"><strong>Logged in as, {{ session["user"] }}!</strong></p>
+              {% endif %}
+            </li>
             <li><a class="white-text" href="{{ url_for('create') }}">Create</a></li>
             <li><a class="white-text" href="{{ url_for('characters') }}">Characters</a></li>
             <li><a class="white-text" href="{{ url_for('login') }}">Login</a></li>
@@ -39,12 +51,6 @@
           </ul>
     </header>
     <section>
-      <!-- Show the user which username is currently logged in -->
-      {% if session["user"] %}
-      <div class="row">
-        <p class="right-align logged-in-user"><strong>Logged in as, {{ session["user"] }}!</strong></p>
-      </div>
-      {% endif %}
 
       <!-- flash messages, displays register and login errors, or successes -->
       {% with messages = get_flashed_messages() %}

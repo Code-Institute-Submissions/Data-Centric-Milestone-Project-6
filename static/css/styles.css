@@ -12,6 +12,10 @@
     color: white;
 }
 
+.black-text {
+    color: black;
+}
+
 .logo-margin {
     margin-left: 5%;
 }
@@ -34,8 +38,8 @@ hr {
 }
 
 .logged-in-user {
-    margin-top: 3px;
-    margin-right: 3px;
+    color: white;
+    margin: 0;
 }
 
 p {
@@ -103,6 +107,10 @@ input, label, select, option {
 .floating-right {
     float: right;
     max-width: 45%;
+}
+
+.no-text-shadow {
+    text-shadow: none;
 }
 
 /*------------------------------ Media Queries --------------------------------*/
