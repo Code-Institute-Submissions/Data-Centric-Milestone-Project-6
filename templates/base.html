@@ -40,13 +40,17 @@
             <li>
               <!-- Show the user which username is currently logged in -->
               {% if session["user"] %}
-                <p class="logged-in-user black-text no-text-shadow"><strong>Logged in as, {{ session["user"] }}!</strong></p>
+                <p class="logged-in-user black-text center-align no-text-shadow"><strong>Logged in as, {{ session["user"] }}!</strong></p>
               {% endif %}
             </li>
+            {% if session["user"] %}
             <li><a class="white-text" href="{{ url_for('create') }}">Create</a></li>
+            {% endif %}
             <li><a class="white-text" href="{{ url_for('characters') }}">Characters</a></li>
             <li><a class="white-text" href="{{ url_for('login') }}">Login</a></li>
+            {% if session["user"] %}
             <li><a class="white-text" href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
             <li><a class="white-text" href="{{ url_for('register') }}">Register</a></li>
           </ul>
     </header>
