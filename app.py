@@ -57,7 +57,7 @@ def register():
         # Puts the new user into a "session" cookie as cached data.
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("characters", username=session["user"]))
+        return redirect(url_for("home", username=session["user"]))
 
     return render_template("register.html")
 
@@ -80,7 +80,7 @@ def login():
                         flash("Welcome, {}!".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "characters", username=session["user"]))
+                            "home", username=session["user"]))
             else:
                 # In event of an incorrect password input, flash a message and
                 # redirect the user to the login.html template page.

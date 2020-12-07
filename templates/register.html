@@ -36,11 +36,9 @@
             </form>
         </div>
     </div>
-    {% if session["user"] %}
     <div class="row">
     <p>Already Registered? <a href="{{ url_for('login') }}">Login</a></p>
     </div>
-    {% endif %}
 </main>
 
 {% endblock %}
