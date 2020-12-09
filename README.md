@@ -12,11 +12,42 @@ When designing the website, the intention was to create a sleek easy to use plat
 
 Wireframes can be found here: [Wireframe01](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe01.jpg?raw=true) [Wireframe02](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe02.jpg?raw=true) [Wireframe03](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe03.jpg?raw=true)
 
+Wireframes can also be found in the main GitHub directory under the folder named "wireframes".
+
+#### Login/Register
+
+For the account registration functionallity, I wanted to keep everything very simple and clean looking, while also adhereing to the base aesthetic of purple and white for the overall site. And so the login and register screen are effectively the same base-level code, where the template is an extension of the base.html, and injects its form and css into that template allowing for much more than just a Navbar. The difference lies in the app.py file, where where the forms are submitted, the login.html template will "GET" user information such as hashed passwords, generated using werkzeug, and the username stored with that hashed password. Whereas the register.html form will "POST" a dict, based off of key value pairs, bareing the same name as the html elements, under the attribute 'name="app-demonstration-name"' for example (it is labelled this way so python can read it properly). Then that grabbed information is stored in the database. Hosted by [MongoDB](https://www.mongodb.com/)
+
+Relevent wireframe: [Login/Register](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe02.jpg?raw=true)
+
+#### Home Page
+
+This was actually the very last thing that was built, and was not wireframed ahead of time. By this point in the project I had a very good idea about how the overall projet and the design was shaping up, and based off of the Thorin and Company miniproject, I thought having a banner image under the navbar with the site brand name across it would be a good design design choice. Then I created tow simple extra features to fill up the content on the page, taking more of an advertising approach where, the features would simply be blurbs floating from the left adn the right side of the page, telling the user in very brief terms what you could do on the app, and providing a centred button linking to the html template that the feature reflected, following the same purple aesthetic.
+
+#### Characters on the site
+
+For this I had a really basic idea based off what I knew could be done utilizing the materialize lightweight framework. the idea like described in the section above with the login/register templates, was to inject the template code into the base.html template by using the Jinja templating language to extend the code. I knew I wanted to have effectively a list of characters in the MongoDB database to display in their own special card-panel (a class created in the materialize framework) in a fairly light grey colour, which would then display fairly rudimentary information about the characters a user could create based off of typical character profiling templates that writers would use to plan their stories, many of which can be found online with varying degrees of complexity and depth. But until this point I havnt seen a website, do a web app version of this template.
+
+Relevent wireframe: [Characters.html](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe01.jpg?raw=true)
+
+#### Create/Edit/Delete... Characters
+
+Create and edit templates are like the login/register templates are almost clones of eachother, though of course with the create.html template in app.py will "POST" information to the database once its complet and only "GET" the user information from a session coookie stored in the users browser cache so you could tag the chracter with the username of the user who authored that particular creation. Again, as with every page, using this uses Jinja templating to inject the code into the base.html file then in app.py, when a character is posted, based once again off the html attribute 'name="example-name"' so python knows what to use, then storing that information in a dict to store on MongoDB. For the edit_character.html template file however, to edit existing characters, it was required to grab the object_ID information from the database so the browser knows exactly what dataset the user are editing before effectively repeating the process used in the create.html page process.
+
+An extra 'Exception handling' esque feature I added here, using the Jinja templating in the html templates was that, if the username stored in the session cookie in the users browsers cache was the same as the authored_by key value pair stored in the database, then only that username could see the buttons appear on the appropriate characters card panel, displaying "Edit" in green and "Delete" in red on the page. Then once "Edit" button is clicked, the app.py file "GET"s the Object_ID for the characters card-panel, (as each card panel is already iterated over per entry character entry in the database) then that character information, including image url, traits, talents etc would be displayed on the character screen and stored for being posted once again in a dict back into the database, overwriting the previous entry of that Object_ID. For the Delete button, the app.py file also grabs the Object_ID for that particular character entry, but will simply delete the entry, flash a message to the screen and route back to the characters.html page. Ideally I would expand this will perhaps an alert box to confirm the change just incase a user mis-clicks.
+
+Relevant wireframe: [create.html](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe03.jpg?raw=true)
+
+#### Logout
+
+Is very simple, where the app.py file will remove the current session cookie from the user web browser. And any user specific data can no longer be menipulated by the user. The user will then need to login in again to edit or delete any entries in the characters.html page. Or even see the create, or logout options in the navbar. Also as a final note, once a user has registered or logged in and been routed back to the home page, in roughly the centre-right part of the PC screen-size a "Logged in as {username}!" message will appear in white, then will dissapear once the user logs out.
+
 ### User Stories
 
 - As an OC enthusiast, I want to be able to quickly create a character using a simple template that I can edit or delete later.
 - As a web user, I'm used to entering account details in order to gain access to user specific information hosted through the site.
 - As a Mobile user, I'm used to websites having a responsive design so the site can be easily viewed and used via a mobile device.
+- As a web user, I want to know that I'm actually logged in, and I can do things on the site that are exclusive to me.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
@@ -37,7 +68,7 @@ This section is also where you would share links to any wireframes, mockups, dia
 ### Features Left to Implement
 
 - Messenger or chat popup feature, so members can communicate and collaborate on projects together.
-- A full page template view of each chracter profiles, which can allow the user many more options, such as viewing a gallery of multiple images for their characters. Or add, edit and delete other details through the use of texat boxes otherwise unavailable in the standard character creation form.
+- A full page template view of each character profiles, which can allow the user many more options, such as viewing a gallery of multiple images for their characters. Or add, edit and delete other details through the use of texat boxes otherwise unavailable in the standard character creation form.
 - A sidebar nav allowing users to select and query chracters by genre, such as sci-fi, fantasty etc.
 - a search bar in order for users to query specific characters or genres of characters, or even those made by specific usernames. Held in the characters template page.
 - A User specific profile page, allowing users to upload their own display pictures, post their creative writing efforts, and the abillity to add comments to each post by themselves or other users.
@@ -64,6 +95,8 @@ This section is also where you would share links to any wireframes, mockups, dia
     - The main Framework used to build the app.
 - [GitHub Desktop](https://desktop.github.com/)
     - The main method I used to upload all my 'git commits' up to GitHub.com
+- [MongoDB](https://www.mongodb.com/)
+    - The database hosting platform used to store all the key, value pairs of information used in the project.
 
 ## Testing
 
