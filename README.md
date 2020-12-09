@@ -11,6 +11,7 @@ and find new inspiration for their own projects.
 ## Features
  
 ### Existing Features
+- OCX Heaven Home Page, to greet users as their first point of contact for the site, and point them in the direction of login or account registration.
 - OCX Heaven Navbar - Available in responsive design, allows the user to navigate the different pages on the app. in mobile view, the navbar is compressed into an easy to recognise, industry standard icon.
 - User Account Registration - This allows users to create their own usernames and passwords for use in exclusive capacity on the app.
 - User Log In - This allows users to Log in with their unique user credentials, and menipulate features exclusive to their particular session cookies stored in cache memory.
@@ -22,7 +23,14 @@ and find new inspiration for their own projects.
 - "Create" Page -  This is only visible to a logged in user with a cached session cookie in their Browser. This consists of a form containing several text input fields and selection menus, with predefined options which a user can use to craft their original characters profiles, including assigning talents, traits, title, name, gender, age and rank. The "Create" button allows the user to submit the new dataset to MongoDB and be displayed to the main "Characters" page.
 
 ### Features Left to Implement
+
 - Messenger or chat popup feature, so members can communicate and collaborate on projects together.
+- A full page template view of each chracter profiles, which can allow the user many more options, such as viewing a gallery of multiple images for their characters. Or add, edit and delete other details through the use of texat boxes otherwise unavailable in the standard character creation form.
+- A sidebar nav allowing users to select and query chracters by genre, such as sci-fi, fantasty etc.
+- a search bar in order for users to query specific characters or genres of characters, or even those made by specific usernames. Held in the characters template page.
+- A User specific profile page, allowing users to upload their own display pictures, post their creative writing efforts, and the abillity to add comments to each post by themselves or other users.
+- A forum, containing sub-forums, where users can create their own posts, show stories, discusss characters or other creative writing endeavours. This should also include a search bar so users can query specific forum entries, or usernames that created the posts.
+- A "forgot my password" option for users who have lost their passwords, and wish to regain access to their profiles.
 
 ## Technologies Used
 
@@ -42,6 +50,8 @@ and find new inspiration for their own projects.
     - A light-weight alternative to Bootstrap, used to simplify the process of build the HTML and CSS elements, using Materializes custom templates and classes.
 - [Flask](https://flask.palletsprojects.com/)
     - The main Framework used to build the app.
+- [GitHub Desktop](https://desktop.github.com/)
+    - The main method I used to upload all my 'git commits' up to GitHub.com
 
 ## Testing
 
@@ -61,14 +71,14 @@ I acknowledge however that this is not the industry standard way to run the proj
 - First you must create a git repository by using "git init" in the terminal window in your chosen IDE.
 - Next you must use "git add -A" this will add anything untracked or modified into the repository you just created.
 - Use "git commit -m" followed by the "" marks in order to leave a comment in your git commit in order to 'save' to the git repository locally on your machine.
-- I used Github desktop app for this step. Load up the app, and ensure you are signed into you Github account via clicking on 'file' in the top left corner of the client screen. Then, scroll down to option and click on it, you should see the app asking for your Github credentials. sign in.
+- I used [Github desktop](https://desktop.github.com) app for this step. Load up the app, and ensure you are signed into you Github account via clicking on 'file' in the top left corner of the client screen. Then, scroll down to option and click on it, you should see the app asking for your Github credentials. sign in.
 - Once you've done the above you should be all current repositories in the tab just under'file'. However, to add a new repo, click on 'file' then click on 'add local repository', this will allow you to select a local folder which is the directory for the git repo you created using "git init". Add it buy clicking "Add Repository".
 - Giving the app a few seconds to buffer, you should now see in the client window that you have 'local commit' that you can 'push' to Github. click and of these 'push' buttons either at the top of the screen or centre to begin.
 - Your git repo will now be available on Github under repositories.
 
 ### Heroku Deployment
 
-- Now that you have your project hosted on Github. Ensure you are logged in to you Heroku account.
+- Now that you have your project hosted on Github. Ensure you are logged in to your [Heroku](https://heroku.com) account.
 
 
 
