@@ -8,6 +8,16 @@ and find new inspiration for their own projects.
  
 ## UX
 
+When designing the website, the intention was to create a sleek easy to use platform for individuals who enjoy creative writing, with a particular focus on the sub category of young writers who like to create their own "OCs" (Original Characters) hence OCX Heaven (the X in the name, standing for express, though I believe that to be a moot point). My  thoughts were to use a basic white background as that is standard for most sites coupled with a nice friendly purple colour for the navbar and opter elements such as buttons that link to pages on the site, other than green for submitting information to a form. nd then of course simple clear black writing.
+
+### User Stories
+
+- As an OC enthusiast, I want to be able to quickly create a character using a simple template that I can edit or delete later.
+- As a web user, I'm used to entering account details in order to gain access to user specific information hosted through the site.
+- As a Mobile user, I'm used to websites having a responsive design so the site can be easily viewed and used via a mobile device.
+
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+
 ## Features
  
 ### Existing Features
