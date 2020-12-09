@@ -69,6 +69,8 @@ I acknowledge however that this is not the industry standard way to run the proj
 ### Host on GitHub
 
 - First you must create a git repository by using "git init" in the terminal window in your chosen IDE.
+- Before going any further you will need to create a Procfile with this command in the terminal window: "echo web: python app.py > Procfile".
+- Then do exactly the same with the requirements.txt (which tells herohu which dependencies it will need to install in order to run your app. In the terminal window type this command: "pip3 freeze --local > requirements.txt"
 - Next you must use "git add -A" this will add anything untracked or modified into the repository you just created.
 - Use "git commit -m" followed by the "" marks in order to leave a comment in your git commit in order to 'save' to the git repository locally on your machine.
 - I used [Github desktop](https://desktop.github.com) app for this step. Load up the app, and ensure you are signed into you Github account via clicking on 'file' in the top left corner of the client screen. Then, scroll down to option and click on it, you should see the app asking for your Github credentials. sign in.
@@ -79,8 +81,15 @@ I acknowledge however that this is not the industry standard way to run the proj
 ### Heroku Deployment
 
 - Now that you have your project hosted on Github. Ensure you are logged in to your [Heroku](https://heroku.com) account.
-
-
+- Ensure you are in the apps page by clicking the Heroku brand logo in the top left corner of the screen.
+- Then click the "New" button in the top right corner of the screen, then several options will appear. click "create new app".
+- Once the page has loaded, give your app a unique name (that another user hasn't already used) and seleect the server region in the box just below. Once you've done that, click on the purple "create app" button just below".
+- After creating the app, a new page will load, near the top of the dashboard, scroll along and click on "settings" and at the bottom of the screen you will "reveal config variables", click the button, and copy and pastet each of the variables from your "env.py" file without "" into each key, value pairs. once added, siply navigate away from the page, they are saved.
+- Be sure to use DEBUG as a Key, and a blank "" as the value, so Heroku knows to switch debug off for the purposes of deploying the website. Otherwise the app will crash.
+- Go back to the "Deploy" option allow the same option bar you found "Settings". Click on it. Then in the centre of the page that loads you should see, an option in the middle, displaying the Gituhub logo, saying "connect to github", since I have hosted my projects code via Github I chose this.
+- You may need to give your github login credentials, but once thas done scroll the whole page down a little bit, then in the box search for the repository you wish to link to heroku.
+- Onced connected, its a siple matter of scrolling the whole page down until you see the "deploy branch" button in dark grey. Provided you created your Procfile and its in your git repository, Heroku will detect python, and the type of app you are building, in this case a web app. and will install then deploy the project based on your requirements.txt
+- You should now be able to view your deployed app via the purple "Open app" button in the top right corner of the screen.
 
 ## Credits
 
