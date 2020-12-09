@@ -22,7 +22,7 @@ and find new inspiration for their own projects.
 - "Create" Page -  This is only visible to a logged in user with a cached session cookie in their Browser. This consists of a form containing several text input fields and selection menus, with predefined options which a user can use to craft their original characters profiles, including assigning talents, traits, title, name, gender, age and rank. The "Create" button allows the user to submit the new dataset to MongoDB and be displayed to the main "Characters" page.
 
 ### Features Left to Implement
-- Another feature idea
+- Messenger or chat popup feature, so members can communicate and collaborate on projects together.
 
 ## Technologies Used
 
@@ -45,6 +45,9 @@ and find new inspiration for their own projects.
 
 ## Testing
 
+In order to test the code locally, I used the terminal command below.
+- python -m flask run
+
 ## Deployment
 
 To run the code locally on my own machine, I used the terminal command below then clicking on the link provided in the terminal
@@ -52,6 +55,21 @@ To run the code locally on my own machine, I used the terminal command below the
 
 I acknowledge however that this is not the industry standard way to run the project, as it was not able to work on my machine in the standard way shown below.
 - python3 app.py
+
+### Host on GitHub
+
+- First you must create a git repository by using "git init" in the terminal window in your chosen IDE.
+- Next you must use "git add -A" this will add anything untracked or modified into the repository you just created.
+- Use "git commit -m" followed by the "" marks in order to leave a comment in your git commit in order to 'save' to the git repository locally on your machine.
+- I used Github desktop app for this step. Load up the app, and ensure you are signed into you Github account via clicking on 'file' in the top left corner of the client screen. Then, scroll down to option and click on it, you should see the app asking for your Github credentials. sign in.
+- Once you've done the above you should be all current repositories in the tab just under'file'. However, to add a new repo, click on 'file' then click on 'add local repository', this will allow you to select a local folder which is the directory for the git repo you created using "git init". Add it buy clicking "Add Repository".
+- Giving the app a few seconds to buffer, you should now see in the client window that you have 'local commit' that you can 'push' to Github. click and of these 'push' buttons either at the top of the screen or centre to begin.
+- Your git repo will now be available on Github under repositories.
+
+### Heroku Deployment
+
+- Now that you have your project hosted on Github. Ensure you are logged in to you Heroku account.
+
 
 
 ## Credits
