@@ -10,6 +10,8 @@ and find new inspiration for their own projects.
 
 When designing the website, the intention was to create a sleek easy to use platform for individuals who enjoy creative writing, with a particular focus on the sub category of young writers who like to create their own "OCs" (Original Characters) hence OCX Heaven (the X in the name, standing for express, though I believe that to be a moot point). My  thoughts were to use a basic white background as that is standard for most sites coupled with a nice friendly purple colour for the navbar and opter elements such as buttons that link to pages on the site, other than green for submitting information to a form. nd then of course simple clear black writing.
 
+Wireframes can be found here: [Wireframe01](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe01.jpg?raw=true) [Wireframe02](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe02.jpg?raw=true) [Wireframe03](https://github.com/phillpearsondev/Data-Centric-Milestone-Project/blob/master/wireframes/wireframe03.jpg?raw=true)
+
 ### User Stories
 
 - As an OC enthusiast, I want to be able to quickly create a character using a simple template that I can edit or delete later.
