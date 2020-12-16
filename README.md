@@ -100,8 +100,32 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Testing
 
-In order to test the code locally, I used the terminal command below.
+In order to test the code locally on my machine, I used the terminal command below with the Visual Stude Code IDE.
 - python -m flask run
+
+In my configuration file named env.py locally, also in the 'config vars' section of the heroku app settings, you have the following key value pairs.
+- "PORT" = "5000"
+This is the typical port to run a Python app in.
+- "DEBUG" = "TRUE"
+During the building and locally server testing, allows any bugs in the code to be reported.
+- "DEBUG" = ""
+The Heroku app configuration variables, used to switch off debug mode. otherwise the Heroku app will crash.
+
+All tests have been made by viewing and user-like use on a mobile device. Simply type: [https://ocx-heaven.herokuapp.com/](https://ocx-heaven.herokuapp.com/) or click it, to run the site from here into your browser window to view the live sight.
+
+- Navigate to the register page in the navbar and register a username and password.
+- You should now be logged in and be redirected to the home page. Three features with clickable buttons taking you to the register, login and create pages.
+- "Logged in as {]!" text should be displayed in white text of the navbar on a large screen or desktop/laptop device, and black test in the navbar menu on a mobile device.
+- Now as a user you should see two new pages in the navbar. "Create" and "Logout".
+- Click "Logout" and navigate to the "Login" page in the navbar and enter the user password credentials you registered with.
+- Click on "Create" located in the site navbar. Assign the value to each other the forms input field. And click the green "Create" button at the bottom of the form to be redirected to a main "Characters" database page where you and other users can view character profiles stored in a MongoDB database.
+- Tested using a second and a third user account in order to see if my exception handling for being allowed to edit and delete character profiles from the database. you can do this by navigating to the "Characters" page and see and green "edit" button and a red "delete" button in the card-panel of any character profile created while logged in with that same account.
+- The above step was repeated three times.
+- Edit and submit new character details in the profile of an existing character by navigating to the "Characters" page via the navbar and click on any green "edit" buttons associated with a character made using the account credentials the user is currently signed in with. This code to validate a user to edit or delete is housed in Jinja templating in the html code. Whilst the functions linking the app to the mongoDB cluster is housed in app.py.
+
+Please Note: A bug is know, where assigning multiple checkbox talents/traits in the dropdown selections in the "create" page, only assign a signle value output to the profile information in the mongoDB database. A possible solution may be to iterate over the input of the user and assign the array as a string output.
+
+All of the code has been further tested electronically by a [circleci](https://circleci.com/) application instance via a link to the gitbhub respository where the base code for [https://ocx-heaven.herokuapp.com/](https://ocx-heaven.herokuapp.com/) is being stored.
 
 ## Deployment
 
